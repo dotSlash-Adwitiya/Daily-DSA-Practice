@@ -1,0 +1,17 @@
+
+
+## To look for suffix of a one string into another string :
+
+Let's say there are two string str1 & suffix
+
+To look for suffix in str1. Basically what we have to do here is,
+think of suffix as the substring and look for it in the string - str1 from the end of it.
+
+How we achieve that in cpp ? 
+
+for(int i = suffix.length(); i >= 0; i--) {
+  if(suffix[i] != str1[str1.length() - suffix.length()+i]);
+
+  //* So here we're removing the suffix length from the original string and moving ahead ith 
+  //* characters.
+}
