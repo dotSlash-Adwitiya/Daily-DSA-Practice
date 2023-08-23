@@ -27,7 +27,7 @@ string removeDups(string S)
       
       bool vis[26] = {0};
       
-      //* For keeping track, of where we left our last duplicate char
+      //* Using k pointer for keeping track, of where we left our last duplicate char
       int k = 0;
       for(int i = 0; i < S.size(); i++) {
           //* If the char is not already visited, then only add it in the ans string
