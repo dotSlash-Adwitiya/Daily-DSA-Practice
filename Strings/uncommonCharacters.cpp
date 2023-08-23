@@ -1,10 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//* BRUTE FORCE - TC : O(n²)
-
-
-
 //* Optimal Approach - TC : O(N), SC: O(26) (CONSTANT)
 string UncommonChars(string A, string B)
 {
