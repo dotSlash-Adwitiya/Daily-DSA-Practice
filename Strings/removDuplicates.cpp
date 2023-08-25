@@ -7,7 +7,7 @@ using namespace std;
 string removeDups(string S) 
 {
   string ans = "";
-  unordered_map<int, int> ump;
+  unordered_map<char, int> ump;
   
   for(int i = 0; i < S.size(); i++) {
       if(ump.find(S[i]) == ump.end())
