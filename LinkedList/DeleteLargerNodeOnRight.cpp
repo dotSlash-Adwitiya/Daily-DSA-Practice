@@ -11,6 +11,7 @@ class Node {
     }
 };
 
+//* TC : O(N), SC : O(N) STACK BASED Approach
 Node *compute(Node *head)
 {
     if(!head || !head->next)
@@ -54,6 +55,9 @@ Node *compute(Node *head)
     prev->next = NULL;
     return head;
 }
+
+
+//* More Optimal Approach, using two-pointers - TC : O(N), SC : O(1)
 
 
 int main()
