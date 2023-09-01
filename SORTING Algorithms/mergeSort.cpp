@@ -1,3 +1,13 @@
+
+//*
+//* Merge sort does sorting in guranteed O(nlogn) Time
+//* You have to do basic math to calculate the indexes of arr1 and arr2 in merge function
+//* Basic idea is to keep dividing the array until single element is there
+//* Extra Space (O(n)) is used. Values are copied into two arrays 
+//* and then these arrays are merged together
+//* So, we basically break this problem down into -> merge 2 sorted array.
+//* 
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -10,7 +20,7 @@ void merge(int arr[], int l, int m, int h)
   int *arr1 = new int[size1];
   int *arr2 = new int[size2];
   
-  int k = l;
+  int k = l;  
   //* Copy array values : 
   for(int i = 0; i < size1; i++)
       arr1[i] = arr[k++];

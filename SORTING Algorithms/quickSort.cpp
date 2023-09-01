@@ -1,3 +1,10 @@
+//* 
+//* Quick Sort does sorting in O(nlogn) Time for Best and Average case
+//* But in Worst case QS gives O(n²) time (if the array is already sorted ASC or DESC)
+//* In every step, take a pivot find its correct postion 
+//* and return correct position's index
+//* 
+
 #include<bits/stdc++.h>
 using namespace std;
 
