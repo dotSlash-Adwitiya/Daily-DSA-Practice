@@ -20,7 +20,8 @@ void bitManipulation(int n, int i) {
     else 
         cout << n << " ";
     
-    // if the ith_bit isn't already clear then clear it using XOR.
+    //* if the ith_bit isn't already clear then clear it using XOR.
+    //* Or, you can also use invert(negation) ~operator & then bitwise &.
     if(ith_bit != 0) 
         cout << (n ^ bit_mask) << " ";
 
