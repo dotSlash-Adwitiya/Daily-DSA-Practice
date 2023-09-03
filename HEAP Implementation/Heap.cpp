@@ -69,7 +69,7 @@ int main()
 
   cout << endl;
   //* Sending Index to the other function (not the element itself)
-  for(int i = 1; i < n; i++) 
+  for(int i = 2; i < n; i++) 
     insert(arr, i);
   
   cout << "Elements After Max heap function : " << endl;
