@@ -63,6 +63,16 @@ class Tree {
       cout << root->data << " ";
       inOrder(root->right);
     }
+
+    int height(Node* root) {
+      if(!root) return 0;
+
+      int lh = height(root->left);
+      int rh = height(root->right);
+
+      return ((lh > rh) ? lh : rh) + 1;
+    }
+
 };
 
 
@@ -75,5 +85,8 @@ int main()
 
   Node*root = t.createTree();
   t.inOrder(root);
+
+  cout << "Height of tree : " << t.height(root) << endl;
+
   return 0;
 }
