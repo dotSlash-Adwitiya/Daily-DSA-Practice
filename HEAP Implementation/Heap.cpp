@@ -29,6 +29,33 @@ void insertMini(int arr[], int idx) {
   arr[i] = temp;
 }
 
+int deletFromHeap(int A[], int n) {
+  int i = 1,j = 2*i, val = A[1];
+    //* Copy last element to root;
+    A[1]=A[n];
+  
+    //* Copy root to last element
+    A[n]=val;
+
+    while(j < n) {
+
+      //* Check which child is greater
+      if(j<n-1 && A[j+1]>A[j]) j=j+1;
+      
+      //* Swap the greater child with the parent
+      if(A[i]<A[j]) {
+        swap(A[i], A[j]);
+        i=j;
+        j=2*j;
+      }
+
+      //* If parent is greater, then the element is in the right position
+      else break;
+    }
+
+    return val; 
+}
+
 int main()
 {
   //* Assuming that 1st element is already in heap.
@@ -42,13 +69,25 @@ int main()
 
   cout << endl;
   //* Sending Index to the other function (not the element itself)
-  for(int i = 2; i < n; i++) 
+  for(int i = 1; i < n; i++) 
     insert(arr, i);
   
   cout << "Elements After Max heap function : " << endl;
 
   for(int i = 1; i < n; i++) 
     cout << arr[i] << " ";
+  cout << endl;
+  
+  //* Calling delete function :-
+  
+//* HEAP SORT :-
+ for(int i=7;i>1;i--)
+  deletFromHeap(arr,i);
+  
+  for(int i = 1; i < n; i++) 
+    cout << arr[i] << " ";
+  cout << endl;
+
 
   return 0;
 }
