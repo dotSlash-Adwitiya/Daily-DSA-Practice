@@ -60,6 +60,19 @@ class BST {
       return root;
     }
 
+    int search(Node* root, int key) {
+      if(root == NULL) return -1;
+
+      if(root->data == key) 
+        return root->data;
+      
+      else if(key < root->data)
+        search(root->left, key);
+      
+      else 
+        search(root->right, key);
+    }
+
     void inOrder(Node* root) {
       if(root == NULL) return;
       inOrder(root->left);
