@@ -93,6 +93,29 @@ void heapify(int arr[], int n, int i) {
 }
 
 
+//* Convert to small heap, code should o/p sorted arr in descending
+//* Minor mistakes in it.
+void heapifyMin(int arr[], int n, int i) {
+  int left = 2*i;
+  int right = 2*i+1;
+  
+  int smallest = i;
+
+  if(left < n && arr[left] < arr[smallest])
+    smallest = left;
+
+  if(right < n && arr[right] < arr[smallest])
+    smallest = right;
+
+  //* Check if largest ptr is updated  
+  if(smallest != i) {
+    swap(arr[i], arr[smallest]);
+
+    //* Send element at largest to its right index.
+    heapify(arr, n, smallest);
+  }
+}
+
 int main()
 {
   Heap h;
