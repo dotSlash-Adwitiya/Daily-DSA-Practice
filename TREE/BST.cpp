@@ -28,6 +28,7 @@ class BST {
       Node* temp = root;
       
       while(temp) {
+        //* Move the link ptr to the temp ptr, to keep track of the last node before null.
         link = temp;
 
         if(temp->data == key) return;
@@ -103,6 +104,8 @@ int main()
   
   tree.inOrder(root1);
   cout << endl;
+
+
   tree.inOrder(root2);
 
   return 0;
