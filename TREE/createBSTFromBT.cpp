@@ -17,32 +17,33 @@ class Node {
 
 class Tree {
   public :
+
+  void createBST(Node* &root, priority_queue<int> &pq) {
+      if(!root) return;
+      
+      createBST(root->right, pq);
+      root->data = pq.top();
+      pq.pop();
+      createBST(root->left, pq);
+  }
+
+  void traverse(Node* root, priority_queue<int> &pq) {
+      if(!root) return;
+      
+      traverse(root->left, pq);
+      pq.push(root->data);
+      traverse(root->right, pq);
+  }
+
+  Node *binaryTreeToBST (Node *root)
+  {
+      priority_queue<int> pq;
+      traverse(root, pq);
+      createBST(root, pq);
+      return root;
+  }
 };
 
-void createBST(Node* &root, priority_queue<int> &pq) {
-        if(!root) return;
-        
-        createBST(root->right, pq);
-        root->data = pq.top();
-        pq.pop();
-        createBST(root->left, pq);
-    }
-    
-    void traverse(Node* root, priority_queue<int> &pq) {
-        if(!root) return;
-        
-        traverse(root->left, pq);
-        pq.push(root->data);
-        traverse(root->right, pq);
-    }
-    
-    Node *binaryTreeToBST (Node *root)
-    {
-        priority_queue<int> pq;
-        traverse(root, pq);
-        createBST(root, pq);
-        return root;
-    }
 
 int main()
 {
