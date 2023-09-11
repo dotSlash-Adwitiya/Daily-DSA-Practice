@@ -26,6 +26,7 @@ void Stack::push(int x) {
     return;
   }
   arr[++top] = x;
+  sz++;
 }
 
 int Stack::pop() {
@@ -35,6 +36,7 @@ int Stack::pop() {
   }
 
   int x = arr[top--];
+  sz--;
   return x;
 }
 
@@ -43,7 +45,7 @@ bool Stack::isEmpty() {
 }
 
 int Stack::size() {
-  return top+1;
+  return sz;
 }
 
 int Stack::peek() {
