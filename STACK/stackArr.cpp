@@ -5,12 +5,13 @@ using namespace std;
 
 class Stack {
   public :
-    int top = -1;
+    int top;
     int sz = 0;
     int *arr = new int[sz];
 
   Stack(int sz){
     this->sz = sz;
+    this->top = -1;
   } 
 
   void push(int x);
