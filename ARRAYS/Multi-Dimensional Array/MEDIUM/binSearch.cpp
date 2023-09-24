@@ -1,6 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// * INTUITION : Map all the 2D indices to a hypothetical (not physical) 1D Array
+// * Then, for ROW Index : 
+// * We need to figure out how many rows are left behind.
+// * Coz, every row will contain m elements. Where m = columns in our matrix
+// * Then, for COLUMN Index :
+// * We need to figure our how many row are left behind, along with additional elements to reach the current index.
+// * Note that, 1st element of every row will be a multiple of m. Where m = columns in our MATRIX. 
+
 //* To only check if the element exists.
 bool binSearch(vector<vector<int>> &matrix, int key) {
 
