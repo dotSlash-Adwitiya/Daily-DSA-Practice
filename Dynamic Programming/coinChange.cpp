@@ -6,19 +6,26 @@ using namespace std;
 
 int solve(vector<int>& coins, int target, int startIdx) {
 
-  if(target == 0)
-    return 0;
   
-  if(target < 0)
-    return 0;
   
-  int mini = INT_MAX;
-  for(int i = startIdx; i < coins.size(); i++) {
-   int ans = solve(coins, target - coins[i], startIdx+1);
-  }
 }
 
 int coinChange(vector<int>& coins, int amount) {
-        
+  if(amount == 0)
+    return 0;
+
+  int ans = INT_MAX;
+
+  for(int i = 0; i < coins.size(); i++) {
+    
+    if(amount-coins[i] >= 0) {
+      int subAns = coinChange(coins, amount-coins[i]);
+
+      if(subAns != INT_MAX && subAns + 1 < ans){
+         
+      }
+    }
+     
+  }
 }
 
