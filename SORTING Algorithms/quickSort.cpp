@@ -64,3 +64,38 @@ int main()
   
   return 0;
 }
+
+
+//* Solved Again on - 23-Jan-2024
+int partition(int arr[], int low, int high)
+{
+  int pivot = arr[low];
+  int i = low, j = high;
+  
+  do{ //* Look for largest element
+      while(i <= high && arr[i] <= pivot) i++;
+      
+      //* Look for Smallest element
+      while(j >= low && arr[j] > pivot) j--;
+      
+      //* If the two ptrs haven't crossed each other, then they can be swapped
+      if(i < j)
+          swap(arr[i], arr[j]);
+          
+  }while(i < j);
+  
+  //* In the end, at jth pointer, we'll have the smallest element.
+  //* Which must be swapped with the pivot (which is the 1st element)
+  swap(arr[j], arr[low]);
+  return j;
+}
+
+void quickSort(int arr[], int low, int high)
+{
+  // * Array must have at least 2 elements to apply quick sort
+  if(low < high) {
+    int pvtIdx = partition(arr, low, high);
+    quickSort(arr, low, pvtIdx-1);  
+    quickSort(arr, pvtIdx+1, high);  
+  }
+}
