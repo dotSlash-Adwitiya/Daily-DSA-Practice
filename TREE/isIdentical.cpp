@@ -30,3 +30,9 @@ bool isIdentical(Node *r1, Node *r2)
       return true;
   return false;
 }
+
+//* One line code in C++ using NESTED Ternary OPERATORS :-
+bool isIdentical(Node *r1, Node *r2)
+{ 
+    return ((r1 == NULL && r2 == NULL) ? true :(((r1 == NULL && r2 != NULL) || (r2 == NULL && r1 != NULL)) ? false : (r1->data == r2->data && isIdentical(r1->left, r2->left) && isIdentical(r1->right, r2->right))));
+}
