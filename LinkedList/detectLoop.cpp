@@ -32,3 +32,19 @@ bool detectLoop(Node* head)
   
   return false;
 }
+
+//* Set or MAP approach, storing Addresses of NODEs !
+bool detectLoop(Node* head)
+{
+  unordered_set<Node*> st;
+  
+  Node* temp = head;
+  
+  while(temp != NULL) {
+      if(st.find(temp) != st.end())
+          return true;
+      st.insert(temp);  
+      temp = temp->next;
+  }
+  return false;
+}
