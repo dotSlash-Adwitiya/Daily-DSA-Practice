@@ -64,6 +64,52 @@ void mergeSort(int arr[], int l, int r)
   merge(arr, l, mid, r);
 }
 
+//* PRACTICE - 1
+void merge(int arr[], int l, int m, int r)
+{
+  int sz1 = m-l+1, sz2 = r-m;
+  int arr1[sz1];
+  int arr2[sz2];
+  
+  // * Copy the elements
+  int k = l;
+  
+  for(int j = 0; j < sz1; j++)
+      arr1[j] = arr[k++];
+      
+  for(int j = 0; j < sz2; j++)
+      arr2[j] = arr[k++];
+      
+  // * Merge by sorting both array
+  k = l;
+  int i = 0, j = 0;
+  
+  while(i < sz1 && j < sz2) {
+      if(arr1[i] <= arr2[j])
+          arr[k] = arr1[i++];
+      else
+          arr[k] = arr2[j++];
+      k++;
+  }
+  
+  while(i < sz1)
+      arr[k++] = arr1[i++];
+      
+  while(j < sz2)
+      arr[k++] = arr2[j++];
+  
+}
+void mergeSort(int arr[], int l, int r)
+{
+  if(l < r) {
+      int mid = l+(r-l)/2;
+      mergeSort(arr, l, mid);
+      mergeSort(arr, mid+1, r);
+      merge(arr, l, mid, r);
+  }
+}
+
+
 int main()
 {
   int arr [] = {8,5,7,3,2};
