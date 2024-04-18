@@ -1,6 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// * Recursive Solution
+
+int solve(int idx, vector<int> &heights) {
+  if (idx == 0) // * CAll with LAST Index of heights[] !
+    return 0;
+
+  int firstPath =
+      solve(idx - 1, heights) + abs(heights[idx] - heights[idx - 1]);
+  int secPath = INT_MAX;
+
+  if (idx > 1)
+    secPath = solve(idx - 2, heights) + abs(heights[idx] - heights[idx - 2]);
+
+  return min(firstPath, secPath);
+}
+
+// * T.C : Optimized, S.C : O(N)
 int solve(int idx, vector<int> &heights, vector<int> &dp)
 {
     if(idx == 0)
