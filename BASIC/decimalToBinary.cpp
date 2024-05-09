@@ -13,12 +13,36 @@ string decimalToBin(int n) {
     bin += ch;
     n /= 2;
   }
+
   reverse(bin.begin(), bin.end());
+  return bin;
+}
+
+// * O(logn) Approach
+int cntBits(int n) {
+  int cnt = 0;
+  while(n){
+    n = n >> 1;
+    cnt++;
+  }
+  return cnt;
+}
+string decimalToBinLog(int n) {
+  int size = cntBits(n);
+  char bin[size];
+  int k = size-1;
+
+  while(n){
+    int bit = n & 1;
+    n = n >> 1;
+    bin[k--] = (bit == 1 ? '1' : '0');
+  }
+  bin[size] = '\0';
   return bin;
 }
 
 int main()
 {
-  cout << "Binary is : " << decimalToBin(4) << endl;
+  cout << "Binary is : " << decimalToBinLog(12) << endl;
   return 0;
 }
