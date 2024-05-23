@@ -2,28 +2,28 @@
 #include<vector>
 using namespace std;
 
-//! Partially - IncorrecT CODE
 void createGraphInAdjacencyMatrix(){
-    int n, m;
-    cin >> n >> m;
-    // adjacency matrix for undirected graph
-    // time complexity: O(n)
-    int adj[n+1][n+1];
-    for(int i = 0; i < m; i++)
-    {
-        int u, v;
-        cin >> u >> v;
-        adj[u][v] = 1;
-        adj[v][u] = 1;  // this statement will be removed in case of directed graph
-    }
+   int nodes, edges;
+   cout << "Enter no of nodes : ";
+   cin >> nodes;
+   cout << "Enter no of edges : ";
+   cin >> edges;
 
-    for(int i = 0; i < n; i++){
-      for(int j = 0; j < n; j++){
-        if(adj[i][j] == 1)
-          cout << i << j << " ";  
-      }
-      cout << endl;
-    }
+   // * S.C : O(n²)
+   // * +1 is due to 0 based indexing
+   int adj[nodes+1][edges+1];
+
+   for (int i = 0; i < edges; i++)
+   {
+      int node, nodeReverse;
+      cin >> node >> nodeReverse;
+      adj[node][nodeReverse] = 1;
+      adj[nodeReverse][node] = 1;
+   }
+}
+
+void createWeightedGRAPH(){
+
 }
 
 int main()
