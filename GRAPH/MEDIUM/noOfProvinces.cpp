@@ -8,6 +8,7 @@ using namespace std;
   * 3. DFS or BFS Both will work, because we only need to count the connected components
   * 4. For each connected component, if we've already visited the node, we will NOT Traverse again on it!
   * 5. NOTE: if V (no of nodes not given, then it is = adjacencyMatrix.size())
+  * 6. T.C : O(N) + O(V+2E), where N = No of Connected Components + DFS T.C
 */
 void dfsFn(vector<int> &vis, vector<int> adj[], int node){
     vis[node] = 1;
@@ -36,6 +37,7 @@ int numProvinces(vector<vector<int>> adj, int V) {
     
     vector<int> vis(V,0);
 
+    // * T.C : O(N) + O(V+2E)
     for(int i = 0; i < V; i++){
         if(!vis[i]){ // * 4.
             dfsFn(vis, adjList, i); // * 3. Calling DFS|BFS for each 
