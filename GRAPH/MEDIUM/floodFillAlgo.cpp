@@ -3,7 +3,7 @@ using namespace std;
 void dfs(int row, int col, vector<vector<int>>&ans,
   vector<vector<int>>& image, int newColor, int delRow[], int delCol[],
   int iniColor) {
-    // color with new color
+    // paint with new color
     ans[row][col] = newColor; 
     int n = image.size();
     int m = image[0].size(); 
@@ -22,9 +22,10 @@ void dfs(int row, int col, vector<vector<int>>&ans,
 
 vector<vector<int>> floodFill(vector<vector<int>>& image, 
 int sr, int sc, int newColor) {
-    // get initial color
+    // initial color configuration
     int iniColor = image[sr][sc]; 
     vector<vector<int>> ans = image; 
+
     // delta row and delta column for neighbours
     int delRow[] = {-1, 0, +1, 0};
     int delCol[] = {0, +1, 0, -1}; 
