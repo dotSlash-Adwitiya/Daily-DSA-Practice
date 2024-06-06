@@ -16,19 +16,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void insertionSort(int arr[], int n)
-{
-  for(int i = 1; i < n; i++) {
-      int j = i-1, curr_ele = arr[i];
-      //* Start shifting elements to right till we find the correct position
-      //* for our current ith element
-      while(j >= 0 && arr[j] > curr_ele) { 
-              arr[j+1] = arr[j];
-              j--;
-      }
-      arr[j+1] = curr_ele;
-  }
-}
+  void insert(int arr[], int i)
+    {
+        int ele = arr[i];
+        int j = i;
+        while(j > 0 && ele < arr[j-1]){
+            arr[j] = arr[j-1];
+            j--;
+        }
+        arr[j] = ele;
+    }
+
+    void insertionSort(int arr[], int n)
+    {
+        for(int i = 1; i < n; i++) 
+            insert(arr, i);
+        
+    }
 
 
 int main()
