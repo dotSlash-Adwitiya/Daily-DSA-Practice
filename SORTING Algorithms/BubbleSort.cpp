@@ -3,10 +3,10 @@ using namespace std;
 
 /*
   * Bubble Sort has following properties
-  * 1. It's not an Adaptive algorithm, because : even if the array is sorted it takes : O(n²) T.C
+  * 1. It's an Adaptive algorithm, because : If the elements are sorted it takes : O(n) T.C
   * 2. It's a STABLE Algorithm
   * 3. It's an in-place Algorithm
-  * 4. T.C : Worst Cast : O(n²), Best Case : O(n²), Average Case : O(n²) 
+  * 4. T.C : Worst Cast : O(n²), Average Case : O(n²), Best Case : O(n) 
 */
 
 void bubbleSort(int arr[], int n)
