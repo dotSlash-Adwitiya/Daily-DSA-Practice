@@ -1,9 +1,17 @@
 
-//*
-//* The basic Idea in this is to ASSUME, that 1st element is ALREADY SORTED
-//* Then we start shifting elements directly
-//* And shift until we find a correct position
-//*
+/*
+  * The basic Idea in this is to ASSUME, that element at 0th index is ALREADY SORTED, 
+  * so we start with 1st index(2nd element)
+  * Then we start shifting elements directly
+  * And shift until we find a correct position
+*/
+
+/*
+  * Properties of Insertion Sort :
+  * 1. Its a STABLE Algorithm : (In case of duplicate elements, it doesn't change the order after sorting)
+  * 2. Its ADAPTIVE in Nature : (If elements are already SORTED, then it takes LESS time - O(n))
+  * 3. Its an IN-PLACE Algorithm
+*/
 
 #include<bits/stdc++.h>
 using namespace std;
