@@ -7,6 +7,7 @@ void dfs(int row, int col, vector<vector<int>>&ans,
     ans[row][col] = newColor; 
     int n = image.size();
     int m = image[0].size(); 
+
     // there are exactly 4 neighbours
     for(int i = 0;i<4;i++) {
         int nrow = row + delRow[i]; 
@@ -49,4 +50,38 @@ int main(){
 	}
 	
 	return 0;
+}
+
+
+// * Practice :
+bool checkValid(int i, int j, std::vector<std::vector<int>> &ans, int initialColor, int newColor){
+    if(i >= 0 && i < ans.size() && j >= 0 && j < ans[0].size() && ans[i][j] == initialColor && ans[i][j] != newColor)
+        return true;
+    return false;
+}
+
+void dfs(vector<vector<int>> &image, vector<vector<int>> &ans, int newColor, int initialColor, int row, int col) {
+    ans[row][col] = newColor;
+
+    if(checkValid(row-1, col, ans, initialColor, newColor)){
+        dfs(image, ans, newColor, initialColor, row-1, col);
+    }
+    if(checkValid(row, col+1, ans, initialColor, newColor)){
+        dfs(image, ans, newColor, initialColor, row, col+1);
+    }
+    if(checkValid(row+1, col, ans, initialColor, newColor)){
+        dfs(image, ans, newColor, initialColor, row+1, col);
+    }
+    if(checkValid(row, col-1, ans, initialColor, newColor)){
+        dfs(image, ans, newColor, initialColor, row, col-1);
+    }
+}
+
+vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+   
+    vector<vector<int>> ans = image;
+    int initialColor = image[sr][sc];
+
+    dfs(image, ans, newColor, initialColor, sr, sc); 
+    return ans;
 }
