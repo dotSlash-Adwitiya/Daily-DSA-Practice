@@ -1,7 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//* BRUTE FORCE, Calculating all the subarrays.
+// * BRUTE FORCE Approach:
+// * T.C : O (n³)
+int maxSubArray(vector<int>& nums) {
+  int currSum = 0, maxSum = INT_MIN;
+
+  for(int i = 0; i < nums.size(); i++) { 
+      for(int j = i; j < nums.size(); j++) {
+  
+          // * Calculate sum from i to j (i----j)
+          int sum = 0;
+          for(int k = i; k <= j; k++) {
+              sum += nums[k];
+          }
+          // * Store the maxSum
+          maxSum = max(sum, maxSum);
+      }
+  }
+  return maxSum;
+}
+
+
+//* BETTER Approach, Calculating all the subarrays.
 //* TC :O(N²), SC : O(1)
 long long maxSubarraySum(int arr[], int n){
   long long maxSum = INT_MIN;
