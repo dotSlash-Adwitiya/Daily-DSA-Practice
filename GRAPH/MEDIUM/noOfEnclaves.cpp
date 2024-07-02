@@ -102,7 +102,7 @@ int numberOfEnclaves(vector<vector<int>> &grid) {
     return enclaves;
 }
 
-void dfs(int row, int col, vector<vector<int>> &grid, vector<vector<int>> &vis, int n, int m) {
+void dfs(int row, int col, vector<vector<int>> &grid, int n, int m) {
     
     if(row >= n || row < 0 || col < 0 || col >= m || grid[row][col] == 0)
         return;
@@ -117,7 +117,7 @@ void dfs(int row, int col, vector<vector<int>> &grid, vector<vector<int>> &vis, 
         int nrow = row + delRow[i];
         int ncol = col + delCol[i];
         
-        dfs(nrow, ncol, grid, vis, n, m);
+        dfs(nrow, ncol, grid, n, m);
     }
 
 }
@@ -135,7 +135,7 @@ int numberOfEnclaves(vector<vector<int>> &grid) {
         for(int j = 0; j < m; j++) {
             if(i == 0 || j == 0 || i == n-1 || j == m-1) {
                 if(grid[i][j] == 1 && !vis[i][j]){ //  * if this is a BOUNDARY LAND which is not visited
-                    dfs(i, j, grid, vis, n, m);
+                    dfs(i, j, grid, n, m);
                 }
             }
         }
