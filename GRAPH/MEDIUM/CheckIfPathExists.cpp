@@ -25,11 +25,13 @@ bool is_Possible(vector<vector<int>>& grid)
       int col=q.front().second;
       q.pop();
       
+      // * If destination reached
       if(grid[row][col]==2) return true;
       
       for(int i=0;i<4;i++){
           int nrow = row + delrow[i];
           int ncol = col + delcol[i];
+          // * Path cannot be blocked so check for != 0 condition
           if(nrow >= 0 and nrow < n and ncol >= 0 and ncol < m and grid[nrow][ncol] != 0
           and !vis[nrow][ncol]){
               q.push({nrow,ncol});
