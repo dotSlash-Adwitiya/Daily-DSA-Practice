@@ -61,3 +61,33 @@ bool isCycle(int V, vector<int> adj[]) {
   return false;
 
 }
+
+// * Practice - 2
+bool dfs(vector<int> adj[], int vis[], int parentNode, int currNode) {
+    vis[currNode] = 1;
+    
+    for(int ele : adj[currNode]){
+        if(vis[ele] && ele != parentNode)
+            return true;
+
+        else {
+            if(dfs(adj, vis, currNode, ele))
+                return true;
+        }
+    }
+    return false;
+}
+
+bool isCycle(int V, vector<int> adj[]) {
+    int vis[V+1] = {0};
+    vis[0] = 1;
+
+        for(int i = 0; i < V; i++) {
+        if(vis[i] == 0) {
+            if(dfs(adj, vis, -1, i))
+                return true;
+        }
+    }
+    return false;
+
+}
