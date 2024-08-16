@@ -119,6 +119,7 @@ int MinimumEffort(vector<vector<int>> &heights) {
   dist[0][0] = 0;
   pq.push({0, {0, 0}});
 
+
   int dr[] = {-1, 0, 1, 0};
   int dc[] = {0, 1, 0, -1};
 
