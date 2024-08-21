@@ -61,3 +61,31 @@ bool isCyclic(int V, vector<int> adj[]) {
 
   return !(cnt == V);
 }
+
+// * Practice - 2
+bool dfs(int node, vector<int> adj[], vector<bool> &vis, vector<bool> &path) {
+  vis[node] = true;
+  path[node] = true;
+  
+  for(int &ele: adj[node]) {
+      if(!vis[ele] && dfs(ele, adj, vis, path))
+          return true;
+      else if(path[ele]) // * Check if this is the SAME Path 
+          return true;
+  }
+  path[node] = false;
+  
+  return false; // * If no same path nodes found then it doesn't have a cycle
+}
+
+bool isCyclic(int V, vector<int> adj[]) {
+  vector<bool> vis(V, false), path(V, false);
+  
+  for(int i = 0; i < V; i++){
+      if(!vis[i]){
+          if(dfs(i, adj, vis, path))
+              return true;
+      }
+  }
+  return false;
+}
