@@ -80,3 +80,36 @@ int numProvinces(vector<vector<int>> adj, int V) {
     }
     return ans;
 }
+
+// * No of Provinces - Practice - 1;
+void bfs(int i,vector<vector<int>> adj,int V,vector<int> &v) {
+    queue<int> q;
+    q.push(i);
+    v[i]=1;
+    
+    while(!q.empty()) {
+        int top = q.front();
+        q.pop();
+        int cnt=0;
+        for(auto it : adj[top]) {
+            if(!v[cnt]&&it==1) {
+                v[cnt] = 1;
+                q.push(cnt);
+            }
+            cnt++;
+        }
+    }
+}
+
+int numProvinces(vector<vector<int>> adj, int V) {
+    
+    int ans = 0;
+    vector<int> v(V,0);
+    for(int i=0;i<V;i++) {
+        if(!v[i]) {
+            bfs(i,adj,V,v);
+            ans++;
+        }
+    }
+    return ans;
+}
